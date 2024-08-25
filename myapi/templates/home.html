@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Taxa de Câmbio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .info {
+            margin-top: 1rem;
+        }
+        .info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .info p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .info .highlight {
+            background-color: #e7f1ff;
+            border-left: 5px solid #007bff;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .call-to-action {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            border-radius: 5px;
+        }
+        .call-to-action h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .call-to-action p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .call-to-action a {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ver Taxa de Câmbio</h1>
+    </header>
+    <main>
+        <section>
+            <p><b>CLICK AQUI PARA VER A -></b><a href="/api/exchange_rate/"> Taxa do Câmbio</a> e para obter as taxas de câmbio atualizadas diretamente do Banco Central.</p>
+            {% if user.is_authenticated %}
+                <p>Bem-vindo, {{ user.username }}! 
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form></p>
+            {% else %}
+                <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Registrar</a></p>
+            {% endif %}
+        </section>
+        <section class="info">
+            <h2>Sobre o Dólar</h2>
+            <p>O dólar americano (USD) é a moeda oficial dos Estados Unidos e é amplamente utilizado como moeda de reserva internacional. Sua taxa de câmbio em relação ao real brasileiro (BRL) pode variar com base em diversos fatores econômicos, políticos e de mercado.</p>
+            <div class="highlight">
+                <h3>Fatores que Afetam a Taxa de Câmbio</h3>
+                <ul>
+                    <li><strong>Política Monetária:</strong> As decisões dos bancos centrais sobre taxas de juros e políticas monetárias podem influenciar a taxa de câmbio.</li>
+                    <li><strong>Dados Econômicos:</strong> Indicadores econômicos como inflação, crescimento do PIB e desemprego impactam a valorização ou desvalorização da moeda.</li>
+                    <li><strong>Estabilidade Política:</strong> A estabilidade política de um país pode afetar a confiança dos investidores e, consequentemente, a taxa de câmbio.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="info">
+            <h2>Política Econômica e Vantagens do Dólar</h2>
+            <p>O dólar americano é frequentemente visto como uma moeda segura em tempos de incerteza econômica global. Isso se deve à sua ampla aceitação e estabilidade econômica dos EUA. Países em desenvolvimento e emergentes muitas vezes mantêm reservas em dólar para proteger suas economias de flutuações inesperadas.</p>
+            <div class="highlight">
+                <h3>Benefícios da Moeda Forte</h3>
+                <ul>
+                    <li><strong>Estabilidade:</strong> O dólar oferece uma reserva de valor confiável em tempos de crise.</li>
+                    <li><strong>Facilidade de Comércio:</strong> A utilização do dólar facilita o comércio internacional e reduz custos de transação.</li>
+                    <li><strong>Investimentos:</strong> Muitas instituições financeiras e investidores preferem usar o dólar para suas operações.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="call-to-action">
+            <h2>Invista no Dólar</h2>
+            <p>Considerando a volatilidade do mercado e as oportunidades que o dólar oferece, é um momento propício para considerar o investimento em dólares. Sua estabilidade e uso global tornam-no uma escolha sólida para diversificar seu portfólio e proteger seu patrimônio.</p>
+            <p><a href="/api/exchange_rate/">Veja as taxas atuais e faça sua compra com confiança!</a></p>
+        </section>
+    </main>
+</body>
+</html>

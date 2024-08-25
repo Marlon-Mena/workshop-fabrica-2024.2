@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxa de Câmbio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        table {
+            width: 80%;
+            max-width: 900px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.2em;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .valor {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .info {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info h2 {
+            color: #007BFF;
+        }
+
+        .info p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .chart-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Taxa de Câmbio</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.data }}</td>
+                <td class="valor">${{ item.valor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="info">
+        <h2>Por Que o Dólar Vale a Pena?</h2>
+        <p>O dólar é uma moeda amplamente valorizada e usada globalmente. Comprar dólares pode ser uma estratégia vantajosa por várias razões:</p>
+        <ul>
+            <li><strong>Valorização:</strong> O dólar tem uma tendência a valorizar ao longo do tempo, principalmente em relação a moedas de economias instáveis.</li>
+            <li><strong>Segurança:</strong> Em tempos de instabilidade econômica, o dólar é visto como um porto seguro para investidores.</li>
+            <li><strong>Investimentos Globais:</strong> O dólar é a moeda padrão para muitos investimentos e transações internacionais.</li>
+            <li><strong>Hedge:</strong> Investir em dólar pode servir como proteção contra a inflação e a desvalorização da moeda local.</li>
+        </ul>
+        <p>Portanto, manter parte dos seus ativos em dólares pode ser uma estratégia inteligente para diversificar e proteger seus investimentos.</p>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="exchangeRateChart"></canvas>
+    </div>
+
+    <script>
+        // Dados fictícios para o gráfico; substitua com dados reais da API
+        const data = [
+            { "data": "23/08/2024", "valor": "5.5263" },
+            { "data": "22/08/2024", "valor": "5.5120" },
+            { "data": "21/08/2024", "valor": "5.5050" },
+            // Adicione mais dados conforme necessário
+        ];
+
+        // Extrair datas e valores
+        const labels = data.map(item => item.data);
+        const values = data.map(item => parseFloat(item.valor));
+
+        // Configuração do gráfico
+        const ctx = document.getElementById('exchangeRateChart').getContext('2d');
+        const exchangeRateChart = new Chart(ctx, {
+            type: 'line', // Tipo de gráfico
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Taxa de Câmbio (USD/BRL)',
+                    data: values,
+                    borderColor: '#007BFF',
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Data'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Valor (R$)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
