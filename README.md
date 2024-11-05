@@ -1,36 +1,36 @@
-Projeto Django - Cadastro de Usuário e API de Câmbio
-Visão Geral
+Proyecto Django: API de intercambio y registro de usuarios
+Descripción general
 
-Este projeto é uma aplicação web desenvolvida em Django para consultar e visualizar a cotação do dólar utilizando a API do Banco Central do Brasil. A aplicação oferece funcionalidades básicas de autenticação de usuários e exibe a taxa de câmbio em gráficos interativos. O projeto inclui gráficos para visualizar as taxas de câmbio e funcionalidades básicas de CRUD.
+Este proyecto es una aplicación web desarrollada en Django para consultar y visualizar el tipo de cambio del dólar utilizando la API del Banco Central de Brasil. La aplicación ofrece funcionalidades básicas de autenticación de usuarios y muestra el tipo de cambio en gráficos interactivos. El proyecto incluye gráficos para visualizar tipos de cambio y funcionalidades básicas de CRUD.
 
-Funcionalidades
+Características
 
-Autenticação de Usuários Registro de Usuário: Permite que novos usuários se registrem criando uma nova conta. Login de Usuário: Usuários registrados podem fazer login para acessar funcionalidades protegidas. Logout de Usuário: Usuários autenticados podem sair da conta.
-Visualização da Taxa de Câmbio Consulta da API: Consulta a API do Banco Central para obter a taxa de câmbio do dólar. Gráficos Interativos: Exibe a taxa de câmbio em gráficos usando Chart.js para facilitar a visualização das variações.
-projeto_django/ │ ├── myapi/ │ ├── migrations/ │ ├── init.py │ ├── admin.py │ ├── apps.py │ ├── models.py │ ├── tests.py │ ├── urls.py │ ├── views.py │ └── templates/ │ ├── home.html │ ├── registration/ │ │ ├── login.html │ │ └── register.html │ └── exchange_rate.html │ ├── projeto_cad_usuario/ │ ├── init.py │ ├── asgi.py │ ├── settings.py │ ├── urls.py │ ├── wsgi.py │ ├── manage.py └── venv/
+Autenticación de usuario Registro de usuario: permite que nuevos usuarios se registren creando una nueva cuenta. Inicio de sesión de usuario: los usuarios registrados pueden iniciar sesión para acceder a la funcionalidad protegida. Cierre de sesión del usuario: los usuarios autenticados pueden cerrar sesión en la cuenta.
+Consulta API de Vista de Tipo de Cambio: Consulta la API del Banco Central para obtener el tipo de cambio del dólar. Gráficos interactivos: muestra el tipo de cambio en gráficos usando Chart.js para facilitar la visualización de las variaciones.
+django_project/ │ ├── myapi/ │ ├── migraciones/ │ ├── init.py │ ├── admin.py │ ├── apps.py │ ├── models.py │ ├─ ─ pruebas.py │ ├── urls.py │ ├── views.py │ └── templates/ │ ├── home.html │ ├── registro/ │ │ ├── login.html │ │ └── registrarse. html │ └ ── exchange_rate.html │ ├── cad_user project/ │ ├── init.py │ ├── asgi.py │ ├── settings.py │ ├── urls.py │ ├── wsgi. │ ├─ ─ administrar.py └── venv/
 
-Estrutura do Projeto
+Estructura del proyecto
 
-Pastas e Arquivos projeto_django/: Diretório raiz do projeto. myapi/: Aplicação Django que contém a lógica para a taxa de câmbio e autenticação. migrations/: Arquivos de migração do banco de dados. models.py: Define o modelo ApiClick para registrar interações com a API. views.py: Implementa as views para exibir a taxa de câmbio e páginas de autenticação. urls.py: Define as URLs da aplicação myapi. templates/: Contém templates HTML para renderizar as páginas. home.html: Página inicial com informações sobre a aplicação. registration/: Templates para autenticação. login.html: Formulário de login. register.html: Formulário de registro. exchange_rate.html: Página para visualizar a taxa de câmbio em gráficos. projeto_cad_usuario/: Configurações principais do projeto Django. settings.py: Configurações do projeto, incluindo o banco de dados. urls.py: Configuração das URLs principais do projeto. wsgi.py: Configuração para o servidor WSGI. manage.py: Script de administração para comandos Django. venv/: Ambiente virtual com as dependências do projeto.
-Funcionalidades em Detalhe
-Autenticação de Usuários
+Carpetas y archivos project_django/: directorio raíz del proyecto. myapi/: Aplicación Django que contiene la lógica para el tipo de cambio y la autenticación. migraciones/: Archivos de migración de bases de datos. models.py: Define el modelo ApiClick para registrar interacciones con la API. views.py: implementa vistas para mostrar el tipo de cambio y las páginas de autenticación. urls.py: define las URL de la aplicación myapi. plantillas/: Contiene plantillas HTML para representar páginas. home.html: Página de inicio con información sobre la aplicación. registro/: Plantillas para autenticación. login.html: formulario de inicio de sesión. registrarse.html: Formulario de registro. exchange_rate.html: Página para ver el tipo de cambio en gráficos. project_cad_usuario/: Configuraciones principales del proyecto Django. settings.py: configuración del proyecto, incluida la base de datos. urls.py: Configuración de las URL principales del proyecto. wsgi.py: Configuración para el servidor WSGI. administrar.py: Script de administración para comandos de Django. venv/: Entorno virtual con dependencias del proyecto.
+Características en detalle
+Autenticación de usuario
 Registro:
-URL: /register/ Página para criar uma nova conta de usuário. Após o registro, o usuário é redirecionado para a página de login. Login:
+URL: /register/ Página para crear una nueva cuenta de usuario. Después del registro, el usuario es redirigido a la página de inicio de sesión. Acceso:
 
-URL: /login/ Página para autenticação de usuários registrados. Após o login, o usuário é redirecionado para a página inicial. Logout:
+URL: /login/ Página de autenticación de usuarios registrados. Después de iniciar sesión, el usuario es redirigido a la página de inicio. Cerrar sesión:
 
-URL: /logout/ Permite que o usuário encerre a sessão. Visualização da Taxa de Câmbio Consulta da API:
+URL: /logout/ Permite al usuario cerrar sesión. Consulta API de vista de tipo de cambio:
 
-URL: /api/exchange_rate/ Endpoint que consulta a API do Banco Central e retorna a taxa de câmbio do dólar em formato JSON. Visualização com Gráficos:
+URL: /api/exchange_rate/ Endpoint que consulta la API del Banco Central y devuelve el tipo de cambio del dólar en formato JSON. Visualización con Gráficos:
 
-URL: /exchange_rate/ Página que exibe a taxa de câmbio em gráficos interativos usando Chart.js. O gráfico mostra a flutuação da taxa de câmbio ao longo do tempo. Configuração e Execução Instalação:
+URL: /exchange_rate/ Página que muestra el tipo de cambio en gráficos interactivos usando Chart.js. El gráfico muestra la fluctuación del tipo de cambio a lo largo del tiempo. Instalación de Configuración y Ejecución:
 
-Clone o repositório e crie um ambiente virtual: bash Copiar código python -m venv venv source venv/bin/activate # No Windows: venv\Scripts\activate Instale as dependências: bash Copiar código pip install -r requirements.txt Configuração do Banco de Dados:
+Clona el repositorio y crea un entorno virtual: bash Copia el código python -m venv venv source venv/bin/activate # En Windows: venv\Scripts\activate Instalar dependencias: bash Copia el código pip install -r requisitos.txt Datos de configuración de la base de datos:
 
-Configure as credenciais do banco de dados no arquivo settings.py. Migrações:
+Configure las credenciales de la base de datos en el archivo settings.py. Migraciones:
 
-Aplique as migrações para criar as tabelas do banco de dados: bash Copiar código python manage.py makemigrations python manage.py migrate Execução:
+Aplique las migraciones para crear las tablas de la base de datos: bash Copiar código python Manage.py makemigrations python Manage.py migrar Ejecución:
 
-Inicie o servidor de desenvolvimento: bash Copiar código python manage.py runserver
+Inicie el servidor de desarrollo: bash Copiar código python Manage.py RunServer
 
-|O servidor estará disponível em http://127.0.0.1:8000/. |
+|El servidor estará disponible en http://127.0.0.1:8000/. |
