@@ -1,36 +1,36 @@
-Proyecto Django: API de intercambio y registro de usuarios
-Descripción general
+Django Project - User Registration and Exchange API
+Overview
 
-Este proyecto es una aplicación web desarrollada en Django para consultar y visualizar el tipo de cambio del dólar utilizando la API del Banco Central de Brasil. La aplicación ofrece funcionalidades básicas de autenticación de usuarios y muestra el tipo de cambio en gráficos interactivos. El proyecto incluye gráficos para visualizar tipos de cambio y funcionalidades básicas de CRUD.
+This project is a web application developed in Django to query and view the dollar exchange rate using the Central Bank of Brazil API. The application offers basic user authentication features and displays the exchange rate in interactive charts. The project includes charts to view exchange rates and basic CRUD features.
 
-Características
+Features
 
-Autenticación de usuario Registro de usuario: permite que nuevos usuarios se registren creando una nueva cuenta. Inicio de sesión de usuario: los usuarios registrados pueden iniciar sesión para acceder a la funcionalidad protegida. Cierre de sesión del usuario: los usuarios autenticados pueden cerrar sesión en la cuenta.
-Consulta API de Vista de Tipo de Cambio: Consulta la API del Banco Central para obtener el tipo de cambio del dólar. Gráficos interactivos: muestra el tipo de cambio en gráficos usando Chart.js para facilitar la visualización de las variaciones.
-django_project/ │ ├── myapi/ │ ├── migraciones/ │ ├── init.py │ ├── admin.py │ ├── apps.py │ ├── models.py │ ├─ ─ pruebas.py │ ├── urls.py │ ├── views.py │ └── templates/ │ ├── home.html │ ├── registro/ │ │ ├── login.html │ │ └── registrarse. html │ └ ── exchange_rate.html │ ├── cad_user project/ │ ├── init.py │ ├── asgi.py │ ├── settings.py │ ├── urls.py │ ├── wsgi. │ ├─ ─ administrar.py └── venv/
+User Authentication User Registration: Allows new users to register by creating a new account. User Login: Registered users can log in to access protected features. User Logout: Authenticated users can log out of the account.
+Exchange Rate View API Query: Queries the Central Bank API to obtain the dollar exchange rate. Interactive Charts: Displays the exchange rate in charts using Chart.js to make it easier to view variations.
+django_project/ │ ├── myapi/ │ ├── migrations/ │ ├── init.py │ ├── admin.py │ ├── apps.py │ ├── models.py │ ├─ ─ tests.py │ ├── urls.py │ ├── views.py │ └── templates/ │ ├── home.html │ ├── registration/ │ │ ├── login.html │ │ └── register.html │ └── exchange_rate.html │ ├── projeto_cad_usuario/ │ ├── init.py │ ├── asgi.py │ ├── settings.py │ ├── urls.py │ ├── wsgi.py │ ├── manage.py └── venv/
 
-Estructura del proyecto
+Project Structure
 
-Carpetas y archivos project_django/: directorio raíz del proyecto. myapi/: Aplicación Django que contiene la lógica para el tipo de cambio y la autenticación. migraciones/: Archivos de migración de bases de datos. models.py: Define el modelo ApiClick para registrar interacciones con la API. views.py: implementa vistas para mostrar el tipo de cambio y las páginas de autenticación. urls.py: define las URL de la aplicación myapi. plantillas/: Contiene plantillas HTML para representar páginas. home.html: Página de inicio con información sobre la aplicación. registro/: Plantillas para autenticación. login.html: formulario de inicio de sesión. registrarse.html: Formulario de registro. exchange_rate.html: Página para ver el tipo de cambio en gráficos. project_cad_usuario/: Configuraciones principales del proyecto Django. settings.py: configuración del proyecto, incluida la base de datos. urls.py: Configuración de las URL principales del proyecto. wsgi.py: Configuración para el servidor WSGI. administrar.py: Script de administración para comandos de Django. venv/: Entorno virtual con dependencias del proyecto.
-Características en detalle
-Autenticación de usuario
-Registro:
-URL: /register/ Página para crear una nueva cuenta de usuario. Después del registro, el usuario es redirigido a la página de inicio de sesión. Acceso:
+Folders and Files projeto_django/: Project root directory. myapi/: Django application that contains the logic for the exchange rate and authentication. migrations/: Database migration files. models.py: Defines the ApiClick model to register interactions with the API. views.py: Implements the views to display the exchange rate and authentication pages. urls.py: Defines the URLs of the myapi application. templates/: Contains HTML templates to render the pages. home.html: Home page with information about the application. registration/: Templates for authentication. login.html: Login form. register.html: Registration form. exchange_rate.html: Page to display the exchange rate in graphs. projeto_cad_usuario/: Main configurations of the Django project. settings.py: Project configurations, including the database. urls.py: Configuration of the main URLs of the project. wsgi.py: Configuration for the WSGI server. manage.py: Administration script for Django commands. venv/: Virtual environment with the project dependencies.
+Features in Detail
+User Authentication
+Registration:
+URL: /register/ Page to create a new user account. After registration, the user is redirected to the login page. Login:
 
-URL: /login/ Página de autenticación de usuarios registrados. Después de iniciar sesión, el usuario es redirigido a la página de inicio. Cerrar sesión:
+URL: /login/ Page for authenticating registered users. After logging in, the user is redirected to the home page. Logout:
 
-URL: /logout/ Permite al usuario cerrar sesión. Consulta API de vista de tipo de cambio:
+URL: /logout/ Allows the user to end the session. Exchange Rate View API Query:
 
-URL: /api/exchange_rate/ Endpoint que consulta la API del Banco Central y devuelve el tipo de cambio del dólar en formato JSON. Visualización con Gráficos:
+URL: /api/exchange_rate/ Endpoint that queries the Central Bank API and returns the dollar exchange rate in JSON format. Chart View:
 
-URL: /exchange_rate/ Página que muestra el tipo de cambio en gráficos interactivos usando Chart.js. El gráfico muestra la fluctuación del tipo de cambio a lo largo del tiempo. Instalación de Configuración y Ejecución:
+URL: /exchange_rate/ Page that displays the exchange rate in interactive charts using Chart.js. The chart shows the exchange rate fluctuation over time. Configuration and Execution Installation:
 
-Clona el repositorio y crea un entorno virtual: bash Copia el código python -m venv venv source venv/bin/activate # En Windows: venv\Scripts\activate Instalar dependencias: bash Copia el código pip install -r requisitos.txt Datos de configuración de la base de datos:
+Clone the repository and create a virtual environment: bash Copy code python -m venv venv source venv/bin/activate # On Windows: venv\Scripts\activate Install the dependencies: bash Copy code pip install -r requirements.txt Database Configuration:
 
-Configure las credenciales de la base de datos en el archivo settings.py. Migraciones:
+Set the database credentials in the settings.py file. Migrations:
 
-Aplique las migraciones para crear las tablas de la base de datos: bash Copiar código python Manage.py makemigrations python Manage.py migrar Ejecución:
+Apply the migrations to create the database tables: bash Copy code python manage.py makemigrations python manage.py migrate Execution:
 
-Inicie el servidor de desarrollo: bash Copiar código python Manage.py RunServer
+Start the development server: bash Copy code python manage.py runserver
 
-|El servidor estará disponible en http://127.0.0.1:8000/. |
+|The server will be available at http://127.0.0.1:8000/. |
